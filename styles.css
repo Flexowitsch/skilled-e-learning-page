@@ -1,0 +1,598 @@
+/* General */
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--color-white);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-align: left;
+    margin: 0;
+}
+
+/* Tokens */
+
+:root {
+
+    /* Colors */
+
+    --color-lavender: hsla(234, 25%, 52%, 1);
+    --color-darknavy: hsla(234, 53%, 16%, 1);
+    --color-grey: hsla(233, 10%, 56%, 1);
+    --color-magenta: hsla(341, 92%, 62%, 1);
+    --color-pink: hsla(341, 100%, 83%, 1);
+    --color-white: hsla(0, 0%, 100%, 1);
+
+    /* Gradients */
+
+    --gradient-secondary: linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
+    --gradient-secondary-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
+    --gradient-tertiary: linear-gradient(180deg, #4851FF 0%, #F02AA6 100%);
+    --gradient-tertiary-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(180deg, #4851FF -54.32%, #F02AA6 100%);
+    --gradient-background-body: linear-gradient(180deg, #FFFFFF 0%, #F0F1FF 100%);
+    --gradient-backgroudn-card-highlight: linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
+
+    /* Spacings & Sizings*/
+
+    --SS-XXL: calc(var(--SS-L) * 2);
+    /*56px*/
+    --SS-XL: 2.5rem;
+    /*40px*/
+    --SS-L: calc(var(--SS-XS) * 2);
+    /*32px*/
+    --SS-M: 1.5rem;
+    /*24px*/
+    --SS-S: 1.125rem;
+    /*18px*/
+    --SS-XS: 1rem;
+    /*16px*/
+    --SS-XXS: 0.875rem;
+    /*16px*/
+
+    /* Font Sizes */
+
+    /* Desktop */
+
+    --font-size-desktop-heading-XL: var(--SS-XXL);
+    --font-size-desktop-heading-L: var(--SS-XL);
+    --font-size-desktop-heading-M: var(--SS-L);
+    --font-size-desktop-heading-S: var(--SS-M);
+    --font-size-desktop-body-M: var(--SS-S);
+    --font-size-desktop-body-S: var(--SS-XS);
+
+
+
+    /* Mobile */
+    --font-size-mobile-heading-L: var(--SS-XL);
+    --font-size-mobile-heading-M: var(--SS-M);
+    --font-size-mobile-heading-S: calc(var(--SS-XS) * 1.25);
+    /*20px*/
+    --font-size-mobile-body-M: var(--SS-XS);
+    --font-size-mobile-body-S: calc(var(--SS-XS) * 0.875);
+    /*14px*/
+
+
+    /* Font Weights */
+
+    --extra-bold: 800;
+    --bold: 700;
+    --medium: 500;
+
+
+    /* Border Radius */
+
+    --border-radius-button: calc(var(--SS-XS) * 1.75);
+    --border-radius-headerimage-desktop: calc(var(--SS-XS) * 9.875);
+    --border-radius-circle: 50%;
+    --border-radius-card-desktop: calc(var(--SS-XS) * 0.9375);
+    --border-radius-card-mobile: calc(var(--SS-XS) * 0.625);
+    
+
+
+    /* Shadows: Values for the Property box-shadow */
+    --shadown-card-course: 0px 25px 50px rgba(6, 22, 141, 0.0442381);
+    --shadow-card-hero: 0px 34px 54px rgba(6, 22, 141, 0.158854);
+
+}
+
+
+
+/* Utilities */
+
+.flex {
+    display: flex;
+} 
+
+@media only screen and (max-width: 768px) {
+    .no-mobile {
+        display: none !important; 
+    }
+}
+  
+@media only screen and (min-width: 769px) {
+    .no-desktop {
+        display: none !important;
+    }
+}
+
+
+@media only screen and (min-width: 391px) and (max-width: 768px) {
+    .no-tablet {
+        display: none !important;
+    }
+}
+
+
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--font-size-desktop-heading-XL);
+    color: var(--color-darknavy);
+    font-weight: var(--extra-bold);
+    line-height: calc(var(--SS-XS) * 4.5);
+}
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: var(--font-size-mobile-heading-L);
+        line-height: calc(var(--SS-XS) * 3.125);
+    }
+}
+
+
+h2 {
+    font-size: var(--font-size-desktop-heading-L);
+    color: var(--color-darknavy);
+    font-weight: var(--extra-bold);
+    line-height: calc(var(--SS-XS) * 3.125);
+}
+
+@media only screen and (max-width: 768px) {
+
+    h2 {
+        font-size: var(--font-size-mobile-heading-L);
+        line-height: var(--SS-XL);
+    }
+}
+
+h3 {
+    font-size: var(--font-size-desktop-heading-M);
+    color: var(--color-white);
+    font-weight: var(--extra-bold);
+    line-height: var(--SS-XL);
+}
+
+@media only screen and (max-width: 768px) {
+
+    h3 {
+        font-size: var(--font-size-mobile-heading-M);
+        line-height: var(--SS-L);
+    }
+}
+
+
+h4 {
+    font-size: var(--font-size-desktop-heading-S);
+    color: var(--color-darknavy);
+    font-weight: var(--extra-bold);
+    line-height: var(--SS-L);
+}
+
+@media only screen and (max-width: 768px) {
+
+    h4 {
+        font-size: var(--font-size-mobile-heading-S);
+        line-height: var(--SS-M);
+    }
+
+}
+
+p {
+    font-size: var(--font-size-desktop-body-M);
+    color: var(--color-grey);
+    font-weight: var(--medium);
+    line-height: calc(var(--SS-XS) * 1.75);
+}
+
+@media only screen and (max-width: 768px) {
+
+    p {
+        font-size: var(--font-size-mobile-body-M);
+        line-height: calc(var(--SS-XS) * 1.625);
+    }
+
+}
+
+.course-usp p {
+    font-size: var(--font-size-desktop-body-S);
+    font-weight: var(--bold);
+}
+
+@media only screen and (max-width: 768px) {
+
+    .course-usp p {
+        font-size: var(--font-size-mobile-body-S);
+    }
+
+}
+
+.course-card-cta {
+    color: var(--color-magenta);
+}
+
+
+/* Buttons */
+
+button {
+    padding: calc(var(--SS-XS) * 0.875) var(--SS-L);
+    border: none;
+    background-color: black;
+    border-radius: calc(var(--SS-XS) * 1.75);
+    font-size: var(--SS-S);
+    color: var(--color-white);
+    font-weight: var(--bold);
+    line-height: calc(var(--SS-XS) * 1.75);
+}
+
+@media only screen and (max-width: 768px) {
+
+    button {
+        padding: calc(var(--SS-XS) * 0.6875) var(--SS-M);
+        font-size: var(--font-size-mobile-body-M);
+        line-height: calc(var(--SS-XS) * 1.75);
+    }
+
+}
+
+.primary-btn {
+    background-color: var(--color-darknavy);
+}
+
+.primary-btn:hover {
+    background-color: var(--color-lavender);
+
+}
+
+.secondary-btn {
+    background: var(--gradient-secondary);
+}
+
+.secondary-btn:hover {
+    background: var(--gradient-secondary-hover);
+
+}
+
+.tertiary-btn {
+    background: var(--gradient-tertiary);
+}
+
+.tertiary-btn:hover {
+    background: var(--gradient-tertiary-hover);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover,
+.tertiary-btn:hover {
+    transition: .3s ease; 
+}
+
+
+
+/* Layout */
+
+/* Navigation */
+
+nav {
+    padding: var(--SS-M) calc(var(--SS-XS) * 10.3125);
+    position: fixed;
+    width: 78.5%;
+    z-index: 1000;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+    nav {
+        width: 90%;
+        padding: var(--SS-M) var(--SS-XL);
+    }
+
+}
+
+@media only screen and (max-width: 375px) {
+
+    nav {
+        padding: var(--SS-XS);
+    }
+
+}
+
+nav .logo {
+    font-size: calc(var(--SS-XS) * 2.25);
+    font-weight: var(--extra-bold);
+    color: var(--color-darknavy);
+    line-height: calc(var(--SS-XS) * 2.8125);
+}
+
+@media only screen and (max-width: 768px) {
+    nav .logo {
+        font-size: calc(var(--SS-XS) * 1.75);
+    }
+}
+
+
+/* Header */
+
+    /* Header general Layout */
+
+    header {
+        margin-bottom: 6.875rem;
+    }
+
+    @media only screen and (max-width: 768px) {
+        
+        header {
+            margin-bottom: 1rem;
+        }
+    }
+
+    @media only screen and (max-width: 375px) {
+        
+        header {
+            flex-direction: column;
+        }
+    }
+    
+
+    header article {
+        padding: 15.75rem 5rem 7.5rem 10.3125rem;
+        width: 40%;
+    }
+
+    @media only screen and (max-width: 768px) {
+        header article {
+            padding: 10.6875rem var(--SS-XL) 5.5rem var(--SS-XL);
+            width: 50%;
+        }
+    }
+
+    @media only screen and (max-width: 375px) {
+        
+        header article {
+            padding: 6.5rem 1rem 2.875rem 1rem;
+            width: 100%;
+        }
+    }
+
+
+    /* Images in Header */
+
+
+    picture {
+        position: relative;
+        width: 60%;
+        height: auto;
+        overflow: hidden;
+        object-position: center;
+        
+    }
+
+    picture img {
+        position: absolute;
+        bottom: 1.25rem;
+        
+    }
+
+    @media only screen and (max-width: 768px) {
+        
+        picture {
+            overflow: hidden;
+            object-position: center;
+            
+        }
+
+        picture img {
+            position: absolute;
+            bottom: 0.25rem;
+            
+        }
+    }
+
+    @media only screen and (max-width: 375px) {
+        
+        picture {
+            width: 100%;
+            justify-content: center; 
+            align-items: center;
+        }
+
+        picture img {
+            position: static;
+            width: 100%;
+        }
+    }
+
+ 
+/* Typo Spacing in Header */
+
+article h1 {
+    margin-bottom: 1.875rem;
+}
+
+article p {
+    margin-bottom: var(--SS-XL);
+}
+
+@media only screen and (max-width: 768px) {
+
+    article h1 {
+        margin-bottom: var(--SS-M);
+    }
+    
+    article p {
+        margin-bottom: var(--SS-M);
+    }
+
+}
+
+@media only screen and (max-width: 375px) {
+    
+}
+
+
+/* Card Section */
+
+main {
+    padding: 0 calc(var(--SS-XS) * 10.3125) calc(var(--SS-XS) * 8.75) calc(var(--SS-XS) * 10.3125);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: calc(var(--SS-XS) * 3.5) calc(var(--SS-XS) * 1.875);
+    background-image: var(--gradient-background-body);
+}
+
+@media only screen and (max-width: 768px) {
+    
+    main {
+        padding: 0 var(--SS-XL) calc(var(--SS-XS) * 5.375) var(--SS-XL);
+        gap: var(--SS-L) calc(var(--SS-XS) * 0.6875);
+    }
+}
+
+@media only screen and (max-width: 375px) {
+   
+    main {
+        padding: 0 var(--SS-XS) calc(var(--SS-XS) * 5) var(--SS-XS);
+        gap: var(--SS-XS) 0;
+   } 
+}
+
+
+.course-card {
+    width: 24.3%;
+    min-height: calc(var(--SS-XS) * 16.1875);
+    padding: calc(var(--SS-XS) * 4) var(--SS-L) var(--SS-XL) var(--SS-L);
+    margin-bottom: var(--SS-M);
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--color-white);
+    border-radius: var(--border-radius-card-desktop);
+    box-shadow: var(--shadown-card-course);
+    position: relative;
+}
+
+@media only screen and (max-width: 768px) {
+    
+    .course-card {
+        min-height: calc(var(--SS-XS) * 16.1875);
+        flex-grow: 1;
+        padding: calc(var(--SS-XS) * 3.5) var(--SS-L) var(--SS-L) var(--SS-L);
+        margin-bottom: var(--SS-XL);
+    }
+}
+
+@media only screen and (max-width: 375px) {
+
+    .course-card {
+        width: 100%;
+        padding: calc(var(--SS-XS) * 3.5) calc(var(--SS-XS) * 1.75) var(--SS-L) calc(var(--SS-XS) * 1.75);
+        margin-bottom: var(--SS-M);
+    }
+
+}
+
+.course-card:first-of-type {
+    background-image: var(--gradient-backgroudn-card-highlight);
+}
+
+@media only screen and (max-width: 375px) {
+
+    .course-card:first-of-type {
+        padding: var(--SS-M) calc(var(--SS-XS) * 1.75) var(--SS-L) calc(var(--SS-XS) * 1.75);
+        min-height: var(--SS-XS);
+        margin-bottom: var(--SS-M)
+    }
+
+}
+
+.course-card-icon {
+    position: absolute;
+    top: calc(var(--SS-M) * (-1));
+    left: var(--SS-L);
+}
+
+@media only screen and (max-width: 375px) {
+
+    .course-card-icon {
+       left: calc(var(--SS-XS) * 1.75); 
+    }
+
+
+}
+
+.course-card h4 {
+    margin-bottom: var(--SS-M);
+}
+
+@media only screen and (max-width: 768px) {
+    
+    .course-card h4 {
+        margin-bottom: var(--SS-XS);
+    }
+
+}
+
+/* Footer */
+
+footer {
+    padding: var(--SS-L) calc(var(--SS-XS) * 10.3125);
+    background-color: var(--color-darknavy);
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    footer {
+        padding: var(--SS-M) var(--SS-XL);
+    }
+
+}
+
+@media only screen and (max-width: 375px) {
+
+    footer {
+        padding: var(--SS-XS);
+    }
+
+}
+ 
+
+footer .logo {
+    font-size: calc(var(--SS-XS) * 2.25);
+    font-weight: var(--extra-bold);
+    color: var(--color-white);
+    line-height: calc(var(--SS-XS) * 2.8125);
+}
+
+@media only screen and (max-width: 768px) {
+    footer .logo {
+        font-size: calc(var(--SS-XS) * 1.75);
+    }
+}
